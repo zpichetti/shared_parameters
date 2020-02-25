@@ -5,26 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css">
   <script src="./js/index.js"></script>
   <title>Revit Shared Parameter Viewer</title>
 </head>
 <body>
+  <div class="banner mb-3 shadow-sm">
+    <div class="container">
+      <h1>Revit Shared Parameter Viewer</h1>
+      <p>This tool is used to view the shared parameter files for the Revit software. <br>
+        Select your file in txt format</p>
+      <div class="form-group">
+        <label for="exampleFormControlFile1">Select file</label>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1" onchange="loadFile(event)">
+      </div>
+      <a class="reset" href="">Reset</a>
+    </div>
+  </div>
   <div class="container">
+    <div id="fileStat" class=my-2>
 
-    <h3>Revit Shared Parameter Viewer</h3>
-    <a href="">Reset</a> <br><br>
-    <input type="file" onchange = "loadFile(event)">
-    <br><br>
-
-    <div class="form-group col-md-4">
-      <label for="inputGroup">Group</label>
-      <select id="inputGroup" class="form-control" onchange = "loadParams()">
-
+    </div>
+    <div class="form-group">
+      <select id="inputGroup" class="form-control" onchange="loadParams()">
       </select>
     </div>
     <div id="listParams" class="">
-  
     </div>
   </div>
+  <footer class="container">
+    <hr>
+    <p>© El Machetti <a href="https://www.linkedin.com/in/xavier-pichetti" target="blank_"><i class="fab fa-linkedin"></i></a></p>
+  </footer>
 </body>
 </html>
+
+

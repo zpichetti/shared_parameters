@@ -1,0 +1,13 @@
+.banner{
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background: linear-gradient(#3674B9, rgb(71, 150, 241));
+}
+
+.reset{
+  color: #212529;
+}
+
+body {
+  background-color: whitesmoke;
+}

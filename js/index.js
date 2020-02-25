@@ -6,6 +6,7 @@ function loadFile(evt) {
   let files = evt.target.files;
   let file = files[0];
   const output = document.querySelector("#listParams");
+  
   output.innerHTML=''
   let reader = new FileReader();
   reader.onload = function(progressEvent){
@@ -18,10 +19,15 @@ function loadFile(evt) {
     const params = paramsListByGroup(lines, groups[0][0]);
     for(let i = 0; i < params.length; i++){
       const param = params[i]
-      const result = `<p>${param[0]} - ${param[1]}</p>`
+      const result = `<div class="param">${param[0]} - ${param[1]}</div>`
       output.insertAdjacentHTML("beforeend", result);
     }
+    const stat = document.querySelector("#fileStat")
+    const nbrGroups = groupsList(window["lines"]).length
+    const nbrParams = paramsList(window["lines"]).length
+    stat.innerHTML = `This file has <strong>${nbrGroups}</strong> groups and <strong>${nbrParams}</strong> parameters`
   };
+
   reader.readAsText(file);
 }
 
@@ -32,7 +38,7 @@ function loadParams(){
   const params = paramsListByGroup(window["lines"], selectGroup);
   for(let i = 0; i < params.length; i++){
     const param = params[i]
-    const result = `<p>${param[0]} - ${param[1]}</p>`
+    const result = `<div class="param">${param[0]} - ${param[1]}</div>`
     output.insertAdjacentHTML("beforeend", result);
   }
 }
@@ -53,7 +59,6 @@ function groupsList(lines){
       inputGroup.insertAdjacentHTML("beforeend", result);
     }
   }
-  console.log(groups)
   return groups
 }
 
@@ -68,7 +73,6 @@ function paramsList(lines){
       params.push([column[2], column[3], column[5]])
     }
   }
-  console.log(params)
   return params
 }
 
@@ -83,6 +87,5 @@ function paramsListByGroup(lines,group){
       params.push([column[2], column[3], column[5]])
     }
   }
-  console.log(params)
   return params
 }
