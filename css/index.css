@@ -4,10 +4,16 @@
   background-color  : #ededed;
 }
 
-.reset{
-  color: #212529;
-}
 
 body {
   background-color: whitesmoke;
+}
+
+a {
+  color: #212529;
+}
+
+a:hover{
+  color: #212529;
+  opacity: 0.5;
 }
